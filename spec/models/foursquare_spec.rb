@@ -7,6 +7,8 @@ describe Foursquare do
 
       it 'checks if response is successful'
 
+      it 'should stop if rate limit exceeded'
+
     end
   end
 
