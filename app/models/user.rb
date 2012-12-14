@@ -7,7 +7,9 @@ class User < ActiveRecord::Base
 
   def self.create_from_omniauth(auth)
 
-    create! do |user|
+    begin
+      user = self.new
+
       user.provider    = auth["provider"]
       user.uid         = auth["uid"]
       user.first_name  = auth["info"]["first_name"]
@@ -15,7 +17,12 @@ class User < ActiveRecord::Base
       user.token       = auth["credentials"]["token"]
       user.email       = auth["info"]["email"]
       user.location    = auth["info"]["location"]
+
+      user.tap { user.save }
+    rescue
+      return false
     end
+
   end
 
 end

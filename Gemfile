@@ -17,8 +17,8 @@ group :development, :test do
   gem 'debugger'
   # gem 'pry-rails'
   # gem 'awesome_print'
-  gem "better_errors"
-  gem "binding_of_caller"
+  # gem "better_errors"
+  # gem "binding_of_caller"
 
   gem 'rspec-rails'
   gem 'capybara'
