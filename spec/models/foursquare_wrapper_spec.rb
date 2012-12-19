@@ -59,7 +59,7 @@ describe FoursquareWrapper do
 
     describe '.save_foursquare_checkin' do
 
-      it 'saves a successful foursquare checkin'
+    it 'saves a successful foursquare checkin'
 
     end
 
