@@ -13,11 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20121213002342) do
 
-  create_table "foursquares", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "logs", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

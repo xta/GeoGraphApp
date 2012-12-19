@@ -1,3 +1,3 @@
-class Foursquare < ActiveRecord::Base
+class FoursquareWrapper
   # attr_accessible :title, :body
 end

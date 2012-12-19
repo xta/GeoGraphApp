@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 gem 'pg'
 
 gem 'omniauth-foursquare'
+gem 'foursquare2'
 # gem 'httparty'
 # gem 'kaminari'
 
@@ -11,9 +12,7 @@ gem 'omniauth-foursquare'
 # in production environments by default.
 group :assets do
   gem 'uglifier', '>= 1.0.3'
-end
 
-group :development, :test do
   gem 'debugger'
   # gem 'pry-rails'
   # gem 'awesome_print'
