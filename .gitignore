@@ -14,4 +14,5 @@
 /log/*.log
 /tmp
 
+/config/test_settings.yml
 /config/initializers/omniauth.rb
