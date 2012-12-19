@@ -13,8 +13,8 @@ gem 'foursquare2'
 group :assets do
   gem 'uglifier', '>= 1.0.3'
 
-  gem 'debugger'
-  # gem 'pry-rails'
+  # gem 'debugger'
+  gem 'pry-rails'
   # gem 'awesome_print'
   # gem "better_errors"
   # gem "binding_of_caller"
@@ -26,7 +26,7 @@ group :assets do
   gem 'terminal-notifier-guard'
   gem 'rb-fsevent', '~> 0.9.1'
 
-  gem 'webmock'
+  gem 'webmock', '~> 1.8.0'
   gem 'vcr'
 
   gem 'factory_girl_rails'
