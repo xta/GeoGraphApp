@@ -2,10 +2,14 @@ require 'spec_helper'
 
 describe FoursquareWrapper do
 
+  let(:client) { Foursquare2::Client.new(:oauth_token => ENV['FOURSQUARE_TEST_TOKEN']) }
+
   context 'for a foursquare API call' do
     describe '.api_success?' do
 
-      it 'returns true if response is 200 OK'
+      it 'returns true if response is 200 OK' do
+        # client.venue(5104)
+      end
 
       it 'returns false if error (not 200 response)'
 

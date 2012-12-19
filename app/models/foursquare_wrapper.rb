@@ -1,3 +1,7 @@
 class FoursquareWrapper
-  # attr_accessible :title, :body
+
+  def self.api_success?
+    
+  end
+
 end

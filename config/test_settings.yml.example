@@ -1,1 +1,1 @@
-FOURSQUARE_TEST_TOKEN = 'token_goes_here'
+FOURSQUARE_TEST_TOKEN: 'token_goes_here'
