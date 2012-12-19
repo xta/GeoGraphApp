@@ -26,10 +26,11 @@ group :assets do
   gem 'terminal-notifier-guard'
   gem 'rb-fsevent', '~> 0.9.1'
 
-  gem 'webmock', '~> 1.8.0'
-  gem 'vcr'
-
   gem 'factory_girl_rails'
   gem 'faker'
 end
 
+group :test do
+  gem 'webmock', '~> 1.8.0'
+  gem 'vcr'
+end
