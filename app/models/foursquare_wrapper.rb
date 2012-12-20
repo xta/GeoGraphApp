@@ -1,6 +1,6 @@
 class FoursquareWrapper
 
-  attr_accessor :endpoint_url
+  attr_accessor :endpoint_url, :checkins
 
   def initialize(endpoint, token, options={})
     target_url = "https://api.foursquare.com/v2/" + endpoint + "?oauth_token=#{token}&v=20121118"
@@ -17,9 +17,15 @@ class FoursquareWrapper
     @endpoint_url = target_url
   end
 
-  def connected?
-    status_code == 200 ? true : false
-  end
+    def checkins
+
+      if connected?
+        # response
+      else
+        return false
+      end
+
+    end
 
   private
 
@@ -34,6 +40,10 @@ class FoursquareWrapper
 
     def status_code
       JSON.parse(response.body)["meta"]["code"]
+    end
+
+    def connected?
+      status_code == 200 ? true : false
     end
  
 end
