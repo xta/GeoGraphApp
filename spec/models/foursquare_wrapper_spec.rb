@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe FoursquareWrapper do
 
-  context 'for a foursquare API call' do
-    describe '.api_success?' do
+  context 'for all foursquare API calls' do
+    describe '#connected?' do
 
       it 'returns true if response is 200 OK' do
 
@@ -13,59 +13,62 @@ describe FoursquareWrapper do
         end
       end
 
-      it 'returns false if error (not 200 response)'
-
-      it 'returns false if rate limit exceeded'
+      it 'returns false if error (not 200 response)' do
+        VCR.use_cassette('response_invalid') do
+          foursquare = FoursquareWrapper.new("users/self/checkins", "foobar_not_key_here", :limit => 1, :sort => "oldestfirst" )
+          foursquare.connected?.should == false
+        end
+      end
 
     end
   end
 
   context 'for current user' do
-    describe '.load_all_checkins' do
+    describe '#load_all_checkins' do
 
       it 'gets all checkins'
 
     end
 
-    describe '.load_any_new_checkins' do
+    describe '#load_any_new_checkins' do
 
       it 'gets any new checkins'
 
     end
 
-    describe '.first_user_checkin' do
+    describe '#first_user_checkin' do
 
       it 'gets the first (oldest) user checkin'
 
     end
 
-    describe '.latest_user_checkin' do
+    describe '#latest_user_checkin' do
 
       it 'gets the last (newest) user checkin'
 
     end
 
-    describe '.get_nearby_venues' do
+    describe '#get_nearby_venues' do
 
       it 'gets nearby venues via GPS coords'
 
     end
 
-    describe '.search_nearby_venues' do
+    describe '#search_nearby_venues' do
 
       it 'gets venues by search params'
 
     end
 
-    describe '.create_foursquare_checkin' do
+    describe '#create_foursquare_checkin' do
 
       it 'posts a new checkin'
 
     end
 
-    describe '.save_foursquare_checkin' do
+    describe '#save_foursquare_checkin' do
 
-    it 'saves a successful foursquare checkin'
+      it 'saves a successful foursquare checkin'
 
     end
 
