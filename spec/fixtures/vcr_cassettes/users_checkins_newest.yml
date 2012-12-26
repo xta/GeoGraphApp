@@ -1,0 +1,101 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.foursquare.com/v2/users/self/checkins?limit=1&oauth_token=<TEST_TOKEN>&sort=newestfirst
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby gem
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
+      - !binary |-
+        Kg==
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGUsIHByaXZhdGUsIG5vLXN0b3Jl
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "RGF0ZQ==":
+      - !binary |-
+        V2VkLCAyNiBEZWMgMjAxMiAyMToxMTo0NyBHTVQ=
+      !binary "RXhwaXJlcw==":
+      - !binary |-
+        V2VkLCAyNiBEZWMgMjAxMiAyMToxMTo0NyBHTVQ=
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbngvMS4yLjE=
+      !binary "U3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eQ==":
+      - !binary |-
+        bWF4LWFnZT04NjQwMDA=
+      !binary "VHJhY2VyLVRpbWU=":
+      - !binary |-
+        NDk=
+      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
+      - !binary |-
+        MTAwMA==
+      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
+      - !binary |-
+        MTAwMA==
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        MTQzMQ==
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    http_version: 
+  recorded_at: Wed, 26 Dec 2012 21:11:51 GMT
+recorded_with: VCR 2.3.0

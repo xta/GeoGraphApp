@@ -1,0 +1,90 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.foursquare.com/v2/users/self/checkins?limit=1&oauth_token=<TEST_TOKEN>&sort=oldestfirst
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby gem
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
+      - !binary |-
+        Kg==
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGUsIHByaXZhdGUsIG5vLXN0b3Jl
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "RGF0ZQ==":
+      - !binary |-
+        V2VkLCAyNiBEZWMgMjAxMiAyMTowODoxNiBHTVQ=
+      !binary "RXhwaXJlcw==":
+      - !binary |-
+        V2VkLCAyNiBEZWMgMjAxMiAyMTowODoxNiBHTVQ=
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbngvMS4yLjE=
+      !binary "U3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eQ==":
+      - !binary |-
+        bWF4LWFnZT04NjQwMDA=
+      !binary "VHJhY2VyLVRpbWU=":
+      - !binary |-
+        NTY=
+      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
+      - !binary |-
+        NTAw
+      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
+      - !binary |-
+        NDk4
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        OTM4
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA61VS4+jRhD+K60+RIlkm7cBn+KdJNpcJiN59rAJo1UDhd0a
+        TJPuxl5r5P+er4HMK8oqh9wwVVR9j6ryEz+SFXzzxCtVE9+Evr/gpLXS95ce
+        v3lNvaZKWKr5HPgJH8gWobuWhCHWa3WSNTHRse3dr+xE2kjVMauYOClZs2aw
+        gyY2FjWrHRE7WNtvCq/wSmlX7aXwTpfzjTjx64J3yspGoh9KGL7544nbCcfr
+        wL0WF6CRlo4O+dBpEvWNGjrLN/71+rDgmkyPAiAAYgeqHqWr5kiOSeto+nrq
+        IGuQSXyRUl42FJe+H8ZUN2meJ5lAnwrlwX+L6kGUREEWrKNg8TewuTzyrDzS
+        76pzqm2PpMGi8G7p/OWz0o+vwr81jSHUWkZO6xN1wwhzRBGXeVqWYdXk61gk
+        oZ/EQRglFOHzThxd5Vu1YinbDSX7kd0fiG0rYh+VpdYBVZ0VFUo/8f4wAQmD
+        MInCYJ35iDdKH4UFlbs5+j3CPzAkLOcMe5aIa/TpVGqG0lnSqskOV1bUNaSF
+        bDwIsox90ErU59GMSitjdlaTo8ZLe+7YzyzM7IF95x5yPOzsCiBagYTYX6Vx
+        kq6zPAt8PwljvO/20CSNVnmWZevUj4MEuGFUr4wV7c04nhzZfuCoSntxatCZ
+        zfIiyY4CfR6VgM/aZXzqMCY1eiNqXKRyL3eOWCU61cGl9pN24+ym0oxj2ahB
+        mz8HoWlVqSPGs/A6tUyXEGS5tAdaioqWByd64X3DMbc1e6Ul+rpBng1ukqyu
+        szoG9awOqiSPgzRKgGw2eCe6+iyrA7tr0Qbv+3bQor2d7H8bdYTMQWn7Ljoy
+        lRiHb9KSx33hvYAsvEapuvDMDIDMqocnAAAhOutI8F+QwbFfvZZH4fS1eiC3
+        cNh67C2OxPgGqKA3vnjZvnk9sVThgg8GR2J+E8V+7nann38HYQ5vhmdLRkem
+        aXRuAE8rH52kz9sco+Jeq6GfdJ4PhoJRenR82nmX5S6GS3pwkM1wnDjwOGRT
+        TTR2D3zTiNbQArexG1yjuaTTZ9vVHwhsxd558wLz/5ucwhvborsqZUv/YTj/
+        bQYLr6aTrOjLWBDkSqLuI2kQfBYPCwYVHp1zI2lkmZ4qCQFGof4pN47Ws9oP
+        7xXD3bHqtTnIflF9WuZ3YUtf7ey9j3LwGHDn4Zlv+tsaBuuJzQCHeWWsFtUj
+        aYYNt0z0PQvfWDNOkLti7QGnZIOz63P8S1yv178APCKJI/4GAAA=
+    http_version: 
+  recorded_at: Wed, 26 Dec 2012 21:08:20 GMT
+recorded_with: VCR 2.3.0

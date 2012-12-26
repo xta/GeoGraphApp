@@ -2,27 +2,9 @@ require 'spec_helper'
 
 describe FoursquareWrapper do
 
-#private call
-  # context 'for all foursquare API calls' do
-  #   describe '#connected?' do
-
-  #     it 'returns true if response is 200 OK' do
-
-  #       VCR.use_cassette('response_ok') do
-  #         foursquare = FoursquareWrapper.new("users/self/checkins", ENV['FOURSQUARE_TEST_TOKEN'], :limit => 1, :sort => "oldestfirst" )
-  #         foursquare.connected?.should == true
-  #       end
-  #     end
-
-  #     it 'returns false if error (not 200 response)' do
-  #       VCR.use_cassette('response_invalid') do
-  #         foursquare = FoursquareWrapper.new("users/self/checkins", "foobar_not_key_here", :limit => 1, :sort => "oldestfirst" )
-  #         foursquare.connected?.should == false
-  #       end
-  #     end
-
-  #   end
-  # end
+  before(:each) do
+    @client = FoursquareWrapper.new(ENV['FOURSQUARE_TEST_TOKEN'])
+  end
 
   context 'for current user' do
     # describe '#load_all_checkins' do
@@ -37,10 +19,11 @@ describe FoursquareWrapper do
     describe '#first_user_checkin' do
 
       it 'gets the first (oldest) user checkin' do
-        # VCR.use_cassette('users_checkins_oldest') do
-        #   foursquare = FoursquareWrapper.new("users/self/checkins", ENV['FOURSQUARE_TEST_TOKEN'], :limit => 1, :sort => "oldestfirst" )
-        #   foursquare.checkins.count.should == 1
-        # end
+        VCR.use_cassette('users_checkins_oldest') do
+          checkin = @client.user_checkins(:limit => 1, :sort => 'oldestfirst')
+          checkin.items.count.should == 1
+          checkin.items.first.venue.name.should == "No. 7 Sub @ The Ace Hotel"
+        end
       end
 
     end
@@ -48,7 +31,13 @@ describe FoursquareWrapper do
     # users/self/checkins
     describe '#latest_user_checkin' do
 
-      it 'gets the last (newest) user checkin'
+      it 'gets the last (newest) user checkin' do
+        VCR.use_cassette('users_checkins_newest') do
+          checkin = @client.user_checkins(:limit => 1, :sort => 'newestfirst')
+          checkin.items.count.should == 1
+          checkin.items.first.venue.name.should == "Bubby's Brooklyn"
+        end
+      end
 
     end
 
