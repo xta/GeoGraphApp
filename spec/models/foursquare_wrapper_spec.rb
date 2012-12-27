@@ -8,7 +8,12 @@ describe FoursquareWrapper do
 
   context 'for current user' do
     # describe '#load_all_checkins' do
-    #   it 'gets all checkins'
+    #   it 'gets all checkins' do
+    #     VCR.use_cassette('load_all_checkins') do
+    #       checkins = @client.load_all_checkins
+    #       checkins.count.should == 63
+    #     end
+    #   end
     # end
 
     # describe '#load_any_new_checkins' do
@@ -20,7 +25,7 @@ describe FoursquareWrapper do
 
       it 'gets the first (oldest) user checkin' do
         VCR.use_cassette('users_checkins_oldest') do
-          checkin = @client.user_checkins(:limit => 1, :sort => 'oldestfirst')
+          checkin = @client.first_checkin
           checkin.venue.name.should == "No. 7 Sub @ The Ace Hotel"
         end
       end
@@ -32,7 +37,7 @@ describe FoursquareWrapper do
 
       it 'gets the last (newest) user checkin' do
         VCR.use_cassette('users_checkins_newest') do
-          checkin = @client.user_checkins(:limit => 1, :sort => 'newestfirst')
+          checkin = @client.latest_checkin
           checkin.venue.name.should == "Bubby's Brooklyn"
         end
       end
