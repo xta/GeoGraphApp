@@ -7,21 +7,26 @@ describe FoursquareWrapper do
   end
 
   context 'for current user' do
+
     describe '#load_all_checkins' do
+
       it 'gets all checkins' do
         VCR.use_cassette('load_all_checkins') do
           checkins = @client.load_all_checkins
           checkins.count.should == 63
         end
       end
+      
     end
 
-    # describe '#load_any_new_checkins' do
-    #   it 'gets any new checkins'
-    # end
+    describe '#load_any_new_checkins' do
+
+      it 'gets any new checkins'
+
+    end
 
     # users/self/checkins
-    describe '#first_user_checkin' do
+    describe '#first_checkin' do
 
       it 'gets the first (oldest) user checkin' do
         VCR.use_cassette('users_checkins_oldest') do
@@ -33,7 +38,7 @@ describe FoursquareWrapper do
     end
 
     # users/self/checkins
-    describe '#latest_user_checkin' do
+    describe '#latest_checkin' do
 
       it 'gets the last (newest) user checkin' do
         VCR.use_cassette('users_checkins_newest') do
@@ -46,7 +51,7 @@ describe FoursquareWrapper do
 
 
     # venues/explore?oauth_token=#{user.token}&ll=#{xcoord},#{ycoord}&llAcc=#{accuracy}
-    describe '#get_nearby_venues' do
+    describe '#explore_venues' do
 
       it 'gets nearby venues via GPS coords' do
         VCR.use_cassette('explore_nearby_venues') do
@@ -59,7 +64,7 @@ describe FoursquareWrapper do
 
     # https://api.foursquare.com/v2/venues/search?ll=#{URI.escape(gps_lat)},#{URI.escape(gps_lon)}
     # &query=#{URI.escape(search_query)}&limit=10
-    describe '#search_nearby_venues' do
+    describe '#search_venues' do
 
       it 'gets venues by search params' do
         VCR.use_cassette('search_nearby_venues') do
@@ -71,14 +76,19 @@ describe FoursquareWrapper do
 
     end
 
+    # checkins/add&venueId=#{venue_id}
+    describe '#add_checkin' do
 
+      it 'creates a new checkin on foursquare service' do
+        VCR.use_cassette('create_new_checkin') do
+          @client.add_checkin(:venueId => "49e7b63df964a5200e651fe3")
 
-    # checkins/add
-    # &venueId=#{venue_id}
-    # :body => {:four => :square}
-    describe '#create_foursquare_checkin' do
-
-      it 'creates a new checkin on foursquare service'
+          # was 63 before test, see #load_all_checkins
+            @all_checkins = []
+            recheck = @client.load_all_checkins
+          recheck.count.should == 64
+        end
+      end
 
     end
 

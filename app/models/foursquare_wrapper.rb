@@ -34,6 +34,10 @@ class FoursquareWrapper
     return @all_checkins
   end
 
+  def add_checkin(options={})
+    @client.add_checkin(options)
+  end
+
   private
 
   def user_checkins(options={})
