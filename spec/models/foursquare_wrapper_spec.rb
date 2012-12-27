@@ -52,14 +52,17 @@ describe FoursquareWrapper do
 
     end
 
-    # https://api.foursquare.com/v2/venues/search
-    # ?ll=#{URI.escape(gps_lat)},#{URI.escape(gps_lon)}
-    # &llAcc=#{URI.escape(gps_acc)}
-    # &query=#{URI.escape(search_query)}
-    # &limit=10&intent=checkin
+    # https://api.foursquare.com/v2/venues/search?ll=#{URI.escape(gps_lat)},#{URI.escape(gps_lon)}
+    # &query=#{URI.escape(search_query)}&limit=10
     describe '#search_nearby_venues' do
 
-      it 'gets venues by search params'
+      it 'gets venues by search params' do
+        VCR.use_cassette('search_nearby_venues') do
+          search = @client.search_venues(:ll => '40.7,-74', :query => 'Sushi', :limit => 10)
+          search.count.should == 10
+          search.first.name.should == "Haru Wall Street"
+        end
+      end
 
     end
 

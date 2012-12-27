@@ -13,5 +13,9 @@ class FoursquareWrapper
   def explore_venues(options={})
     @client.explore_venues(options).groups.first.items
   end
+
+  def search_venues(options={})
+    @client.search_venues(options).groups.first.items
+  end
  
 end
