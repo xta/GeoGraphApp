@@ -7,14 +7,14 @@ describe FoursquareWrapper do
   end
 
   context 'for current user' do
-    # describe '#load_all_checkins' do
-    #   it 'gets all checkins' do
-    #     VCR.use_cassette('load_all_checkins') do
-    #       checkins = @client.load_all_checkins
-    #       checkins.count.should == 63
-    #     end
-    #   end
-    # end
+    describe '#load_all_checkins' do
+      it 'gets all checkins' do
+        VCR.use_cassette('load_all_checkins') do
+          checkins = @client.load_all_checkins
+          checkins.count.should == 63
+        end
+      end
+    end
 
     # describe '#load_any_new_checkins' do
     #   it 'gets any new checkins'
