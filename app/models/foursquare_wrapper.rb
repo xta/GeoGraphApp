@@ -7,7 +7,11 @@ class FoursquareWrapper
   end
 
   def user_checkins(options={})
-    @client.user_checkins(options)
+    @client.user_checkins(options).items.first
+  end
+
+  def explore_venues(options={})
+    @client.explore_venues(options).groups.first.items
   end
  
 end

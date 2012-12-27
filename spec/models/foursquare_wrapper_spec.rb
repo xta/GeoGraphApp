@@ -21,8 +21,7 @@ describe FoursquareWrapper do
       it 'gets the first (oldest) user checkin' do
         VCR.use_cassette('users_checkins_oldest') do
           checkin = @client.user_checkins(:limit => 1, :sort => 'oldestfirst')
-          checkin.items.count.should == 1
-          checkin.items.first.venue.name.should == "No. 7 Sub @ The Ace Hotel"
+          checkin.venue.name.should == "No. 7 Sub @ The Ace Hotel"
         end
       end
 
@@ -34,20 +33,22 @@ describe FoursquareWrapper do
       it 'gets the last (newest) user checkin' do
         VCR.use_cassette('users_checkins_newest') do
           checkin = @client.user_checkins(:limit => 1, :sort => 'newestfirst')
-          checkin.items.count.should == 1
-          checkin.items.first.venue.name.should == "Bubby's Brooklyn"
+          checkin.venue.name.should == "Bubby's Brooklyn"
         end
       end
 
     end
 
 
-    # venues/explore?oauth_token=#{user.token}
-    # &ll=#{xcoord},#{ycoord}
-    # &llAcc=#{accuracy}
+    # venues/explore?oauth_token=#{user.token}&ll=#{xcoord},#{ycoord}&llAcc=#{accuracy}
     describe '#get_nearby_venues' do
 
-      it 'gets nearby venues via GPS coords'
+      it 'gets nearby venues via GPS coords' do
+        VCR.use_cassette('explore_nearby_venues') do
+          explore = @client.explore_venues(:ll => '40.7,-74')
+          explore.count.should == 30
+        end
+      end
 
     end
 
@@ -69,15 +70,9 @@ describe FoursquareWrapper do
     # :body => {:four => :square}
     describe '#create_foursquare_checkin' do
 
-      it 'posts a new checkin'
+      it 'creates a new checkin on foursquare service'
 
     end
-
-    # describe '#save_foursquare_checkin' do
-
-    #   it 'saves a successful foursquare checkin'
-
-    # end
 
   end
 end
