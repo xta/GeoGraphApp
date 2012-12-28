@@ -25,17 +25,22 @@ class FoursquareWrapper
 
   def load_all_checkins
     @all_checkins.concat( user_checkins(:limit => 250, :sort => "oldestfirst") )
-
-    latest_ci_id = latest_checkin.id
-    until @all_checkins.detect { |ci| ci.id == latest_ci_id }
-      @all_checkins.concat( user_checkins(  :limit => 250, :sort => "oldestfirst", :afterTimestamp => @all_checkins.last.createdAt ) )
-    end
-
-    return @all_checkins
+    load_any_new_checkins
   end
 
   def add_checkin(options={})
     @client.add_checkin(options)
+  end
+
+  def load_any_new_checkins
+    latest_ci_id = latest_checkin.id
+
+    until @all_checkins.detect { |ci| ci.id == latest_ci_id }
+      additional_checkins = user_checkins( :limit => 250, :sort => "oldestfirst", :afterTimestamp => @all_checkins.last.createdAt )
+      additional_checkins.each { |c| @all_checkins.push(c) unless @all_checkins.include?(c) }
+    end
+
+    return @all_checkins
   end
 
   private

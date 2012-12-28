@@ -21,7 +21,14 @@ describe FoursquareWrapper do
 
     describe '#load_any_new_checkins' do
 
-      it 'gets any new checkins'
+      it 'gets any new checkins that are not loaded yet (or missing)' do
+        VCR.use_cassette('load_any_new_checkins') do
+          @client.load_all_checkins
+          5.times { @client.all_checkins.pop }
+          @client.load_any_new_checkins
+          @client.all_checkins.count.should == 64
+        end
+      end
 
     end
 
