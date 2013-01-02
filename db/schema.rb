@@ -11,11 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121213002342) do
+ActiveRecord::Schema.define(:version => 20130102051903) do
 
   create_table "logs", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "ci_id"
+    t.integer  "ci_created"
+    t.string   "ci_type"
+    t.string   "ci_timezoneoffset"
+    t.string   "ci_venue_id"
+    t.string   "ci_venue_name"
+    t.string   "ci_venue_location_address"
+    t.string   "ci_venue_location_city"
+    t.string   "ci_venue_location_state"
+    t.string   "ci_venue_location_crossStreet"
+    t.string   "ci_venue_location_postalCode"
+    t.string   "ci_venue_location_country"
+    t.string   "ci_venue_location_cc"
+    t.string   "ci_venue_location_lat"
+    t.string   "ci_venue_location_lng"
+    t.string   "ci_venue_categories_id"
+    t.string   "ci_venue_categories_name"
+    t.string   "source"
   end
 
   create_table "users", :force => true do |t|
