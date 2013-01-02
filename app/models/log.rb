@@ -1,20 +1,22 @@
 class Log < ActiveRecord::Base
 
-  def self.store_checkins(collection)
+  belongs_to :user
+
+  def self.store_checkins(user_id, collection)
 
     collection.each do |checkin|
-      save_checkin(checkin)
+      save_checkin(user_id, checkin)
     end
 
   end
 
 private
 
-  def self.save_checkin(checkin)
+  def self.save_checkin(user_id, checkin)
 
     begin
       new_log = self.new
-      # new_log.user_id = user.id 
+      new_log.user_id = user_id
       
       new_log.ci_id = checkin.id
       new_log.ci_created = checkin.createdAt

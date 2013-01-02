@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  # attr_accessible :title, :body
+  
+  has_many :logs, :dependent => :destroy
 
   def self.from_omniauth(auth)
     where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
