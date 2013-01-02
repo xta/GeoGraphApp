@@ -1,0 +1,9 @@
+<% if current_user %>
+
+  <% @logs.each do |log| %>
+
+    <%= log.name %><br/>
+
+  <% end %>
+
+<% end %>

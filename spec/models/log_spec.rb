@@ -6,26 +6,32 @@ describe Log do
     @client = FoursquareWrapper.new(ENV['FOURSQUARE_TEST_TOKEN'])
   end
 
-  let(:user) { User.create(:id => 5000) }
-  let(:user_id) { user.id }
+  let(:user) do
+    new_test_user = User.new
+    new_test_user.token = ENV['FOURSQUARE_TEST_TOKEN']
+    new_test_user.tap { new_test_user.save }
+  end
 
   let(:checkins) do
-    VCR.use_cassette('log_checkins') do
+    VCR.use_cassette('log_checkins_count') do
       @client.load_all_checkins
     end
   end
 
-  let(:checkins_count) { checkins.count }
-
   context 'for current user' do
-    describe '#store_checkins' do
 
-      it 'accepts an array of checkins and saves it as a log' do
+    describe '#load_any_checkins' do
 
-        Log.store_checkins(user_id, checkins)
-        user.logs.count.should == checkins_count
-
+      it 'loads all checkins for new user' do
+        VCR.use_cassette('log_checkins') do
+          Log.load_any_checkins(user)
+          user.logs.count.should == checkins.count
+        end
       end
+
+      # it 'loads any new checkins for existing user'
+      # it 'doesnt load any checkins if no new ones'
+      # it 'doesnt load any checkins if user has no checkins'
 
     end
 
